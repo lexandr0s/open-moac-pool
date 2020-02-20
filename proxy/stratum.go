@@ -101,6 +101,8 @@ func (s *ProxyServer) handleTCPClient(cs *Session) error {
 	return nil
 }
 
+
+
 func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 	// Handle RPC methods
 	mcreqMethed := strings.Replace(req.Method, "eth_", "mc_",1)
@@ -112,6 +114,7 @@ func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 			log.Println("Malformed stratum request params from", cs.ip)
 			return err
 		}
+
 		reply, errReply := s.handleLoginRPC(cs, params, req.Worker)
 		if errReply != nil {
 			return cs.sendTCPError(req.Id, errReply)
@@ -130,7 +133,8 @@ func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 			log.Println("Malformed stratum request params from", cs.ip)
 			return err
 		}
-		reply, errReply := s.handleTCPSubmitRPC(cs, req.Worker, params)
+		reply, errReply := s.handleTCPSubmitRPC(cs, cs.worker, params)
+//		reply, errReply := s.handleTCPSubmitRPC(cs, req.Worker, params)
 		if errReply != nil {
 			return cs.sendTCPError(req.Id, errReply)
 		}

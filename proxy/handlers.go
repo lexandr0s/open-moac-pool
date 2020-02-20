@@ -20,7 +20,19 @@ func (s *ProxyServer) handleLoginRPC(cs *Session, params []string, id string) (b
 		return false, &ErrorReply{Code: -1, Message: "Invalid params"}
 	}
 
-	login := strings.ToLower(params[0])
+//extract worker name from address string (lexandr0s)
+
+//	login := strings.ToLower(params[0])
+	
+	split_params := strings.Split(params[0], ".")
+	login := strings.ToLower(split_params[0])
+	if len(split_params) > 1 {
+//		cs.worker=split_params[1]
+		id=split_params[1]
+	}
+	cs.worker=id
+/////////////////////
+
 	if !util.IsValidHexAddress(login) {
 		return false, &ErrorReply{Code: -1, Message: "Invalid login"}
 	}
