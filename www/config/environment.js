@@ -1,8 +1,8 @@
-/* jshint node: true */
+'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
-    modulePrefix: 'open-moac-pool',
+  let ENV = {
+    modulePrefix: 'open-ethereum-pool',
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
@@ -15,22 +15,22 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//moacpool.tk/',
+      ApiUrl: '//example.net/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://moacpool.tk',
+      HttpHost: 'http://example.net',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'moacpool.tk',
+      StratumHost: 'example.net',
       StratumPort: 8008,
 
       // Fee and payout details
       PoolFee: '1%',
-      PayoutThreshold: '1 Moac',
+      PayoutThreshold: '0.5 Ether',
 
       // For network hashrate (change for your favourite fork)
-      BlockTime: 10
+      BlockTime: 14.4
     }
   };
 
@@ -38,7 +38,7 @@ module.exports = function(environment) {
     /* Override ApiUrl just for development, while you are customizing
       frontend markup and css theme on your workstation.
     */
-    ENV.APP.ApiUrl = 'http://localhost:8080/'
+    ENV.APP.ApiUrl = 'http://localhost:8081/'
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

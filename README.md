@@ -59,7 +59,7 @@ The frontend is a single-page Ember.js application that polls the pool API to re
 
 Change <code>moacpool.tk</code> in <code>www/config/environment.js</code> to match your domain name. Also don't forget to adjust other options.
 
-    npm install -g ember-cli@2.9.1
+    npm install -g ember-cli@2.18
     npm install -g bower
     npm install
     bower install
